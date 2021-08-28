@@ -1,3 +1,4 @@
+using DevIO.Api.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,8 @@ namespace TesteMazzaFC.Api
         {
             services.AddDbContext<ApiDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentityConfig(Configuration);
 
             services.AddControllers();
 
