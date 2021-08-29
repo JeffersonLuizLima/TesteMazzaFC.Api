@@ -11,7 +11,6 @@ using TesteMazzaFC.Api.Model;
 
 namespace TesteMazzaFC.Api.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProdutosController : MainController
