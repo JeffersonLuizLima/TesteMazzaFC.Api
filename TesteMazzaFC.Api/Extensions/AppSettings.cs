@@ -1,4 +1,4 @@
-﻿namespace DevIO.Api.Extensions
+﻿namespace TesteMazzaFC.Api.Extensions
 {
     public class AppSettings
     {
