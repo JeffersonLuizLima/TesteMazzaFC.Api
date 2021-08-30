@@ -62,21 +62,18 @@ namespace TesteMazzaFC.Api.Controllers
 
             try
             {
-                await _context.SaveChangesAsync();
+                if (!_context.Produtos.Any(p => p.Nome == produto.Nome && p.Id != produto.Id)) await _context.SaveChangesAsync();
+
+                else { NotificarErro("Já existe um produto com este nome infomado."); }
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProdutoExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                if (!ProdutoExists(id)) return NotFound();
 
-            return NoContent();
+                else throw;
+            }
+            
+            return CustomResponse(produto);
         }
 
         [HttpPost]
@@ -91,7 +88,7 @@ namespace TesteMazzaFC.Api.Controllers
                 return CreatedAtAction("GetProduto", new { id = produto.Id }, produto);
             }
 
-            NotificarErro("Nome já cadastrado");
+            NotificarErro("Já existe um produto com este nome infomado.");
             return CustomResponse(produto);
         }
 

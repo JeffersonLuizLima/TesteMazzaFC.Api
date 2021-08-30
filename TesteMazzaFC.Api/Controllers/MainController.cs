@@ -29,7 +29,7 @@ namespace TesteMazzaFC.Api.Controllers
                 return Ok(new
                 {
                     success = true,
-                    data = result
+                    token = result
                 });
             }
 
