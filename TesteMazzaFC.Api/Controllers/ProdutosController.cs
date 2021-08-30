@@ -25,7 +25,16 @@ namespace TesteMazzaFC.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Produto>>> GetProdutos()
         {
-            return await _context.Produtos.ToListAsync();
+
+            var result = _context.Produtos.Include(z => z.Categoria).Select(x => new Produto
+            {
+                Id = x.Id,
+                Nome = x.Nome,
+                Preco = x.Preco,
+                Categoria = x.Categoria
+            });
+
+            return await result.ToListAsync();
         }
 
         [HttpGet("{id:int}")]
