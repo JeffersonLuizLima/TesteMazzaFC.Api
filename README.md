@@ -20,7 +20,8 @@
 
 ```sh
 git clone https://github.com/JeffersonLuizLima/TesteMazzaFC.Api
-Wait for the solution to install the dependencies
+open TesteMazzaFC.Api.sln with visual studio
+wait for the solution to install the dependencies
 play start
 ```
 ## Updates 🎨
