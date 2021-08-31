@@ -10,6 +10,7 @@ namespace TesteMazzaFC.Api.Configuration
         {
             services.AddScoped<INotificador, Notificador>();
 
+          
             return services;
         }
     }

@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Swashbuckle.AspNetCore.Swagger;
 using TesteMazzaFC.Api.Configuration;
 using TesteMazzaFC.Api.Data;
 
@@ -42,7 +44,7 @@ namespace TesteMazzaFC.Api
                     builder =>
                         builder
                             .WithMethods("GET")
-                            .WithOrigins("http://desenvolvedor.io")
+                            .WithOrigins("http://")
                             .SetIsOriginAllowedToAllowWildcardSubdomains()
                             //.WithHeaders(HeaderNames.ContentType, "x-custom-header")
                             .AllowAnyHeader());
@@ -70,7 +72,6 @@ namespace TesteMazzaFC.Api
 
             app.UseAuthentication();
             app.UseAuthorization();
-
 
             app.UseEndpoints(endpoints =>
             {
